@@ -22,9 +22,26 @@ class _FirstPageState extends State<FirstPage> {
           Container(
             alignment: Alignment.center,
             child: ElevatedButton(
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SecondPage(str: 'Welcome To The Second , this message has been passed from the first Page',num: 40,))),
+                // onPressed: () => Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => SecondPage(
+                //               str:
+                //                   'Welcome To The Second , this message has been passed from the first Page',
+                //               num: 40,
+                //             ))),
+                onPressed: ()=>Navigator.pushNamed(context, 'secondPage',arguments: {
+                  'str':'Second Page',
+                  'num':40
+                }),
                 child: Text('Second Page')),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 20),
+            alignment: Alignment.center,
+            child: ElevatedButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('Go Back')),
           )
         ],
       ),

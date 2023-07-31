@@ -12,6 +12,10 @@ class SecondPage extends StatefulWidget {
 class _SecondPageState extends State<SecondPage> {
   @override
   Widget build(BuildContext context) {
+    // Fetching the element passed from first page using Navigator.pushed()
+    final arguments = ModalRoute.of(context)!.settings.arguments as Map;
+    String str = arguments['str'];
+    int num = arguments['num'];
     return Scaffold(
       appBar: AppBar(
         title: Text('Second Page'),
@@ -23,9 +27,7 @@ class _SecondPageState extends State<SecondPage> {
           Container(
             padding: EdgeInsets.all(20),
             child: Text(
-              widget.str.toString() +
-                  "\n this number is to passed from first page i.e" +
-                  widget.num.toString(),
+              "$str\n this number is has been passed from first page i.e$num",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
             ),
           ),

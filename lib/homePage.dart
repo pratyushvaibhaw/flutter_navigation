@@ -22,10 +22,12 @@ class _HomePageState extends State<HomePage> {
           Container(
             alignment: Alignment.center,
             child: ElevatedButton(
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => FirstPage())),
+                // onPressed: () => Navigator.push(context,
+                //     MaterialPageRoute(builder: (context) => FirstPage())),
+                // child: Text('First Page')
+                onPressed: () => Navigator.pushNamed(context, 'firstPage'),
                 child: Text('First Page')),
-          )
+          ),
         ],
       ),
     );
