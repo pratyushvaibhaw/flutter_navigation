@@ -1,4 +1,4 @@
-import 'package:demo/secondPage.dart';
+import 'package:demo/utils/routesName.dart';
 import 'package:flutter/material.dart';
 
 class FirstPage extends StatefulWidget {
@@ -13,7 +13,10 @@ class _FirstPageState extends State<FirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('First Page'),
+        title: Text(
+          'First Page',
+          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25),
+        ),
         centerTitle: true,
       ),
       body: Column(
@@ -22,18 +25,11 @@ class _FirstPageState extends State<FirstPage> {
           Container(
             alignment: Alignment.center,
             child: ElevatedButton(
-                // onPressed: () => Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) => SecondPage(
-                //               str:
-                //                   'Welcome To The Second , this message has been passed from the first Page',
-                //               num: 40,
-                //             ))),
-                onPressed: ()=>Navigator.pushNamed(context, 'secondPage',arguments: {
-                  'str':'Second Page',
-                  'num':40
-                }),
+                onPressed: () => Navigator.pushNamed(
+                        context, RouteName.secondPage, arguments: {
+                      'str': 'Second Page (text passed from First Page)',
+                      'num': 0
+                    }),
                 child: Text('Second Page')),
           ),
           Container(

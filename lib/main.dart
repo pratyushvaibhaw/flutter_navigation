@@ -1,6 +1,6 @@
-import 'package:demo/firstPage.dart';
 import 'package:demo/homePage.dart';
-import 'package:demo/secondPage.dart';
+import 'package:demo/utils/Routes.dart';
+import 'package:demo/utils/routesName.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,15 +22,8 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
           //primaryColor: Color.fromARGB(255, 168, 239, 207),
           primarySwatch: Colors.purple),
-      //home: HomePage(),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => HomePage(),
-        'firstPage': (context) => FirstPage(),
-        'secondPage': (context) => SecondPage(
-              str: 'Hello World',
-            ),
-      },
+      initialRoute: RouteName.homePage,
+      onGenerateRoute: Routes.generateRoute,
     );
   }
 }

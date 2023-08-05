@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SecondPage extends StatefulWidget {
-  final String str;
-  final int num;
-  const SecondPage({super.key, required this.str, this.num = 2});
+  dynamic data;
+  SecondPage({super.key, required this.data});
 
   @override
   State<SecondPage> createState() => _SecondPageState();
@@ -13,9 +12,7 @@ class _SecondPageState extends State<SecondPage> {
   @override
   Widget build(BuildContext context) {
     // Fetching the element passed from first page using Navigator.pushed()
-    final arguments = ModalRoute.of(context)!.settings.arguments as Map;
-    String str = arguments['str'];
-    int num = arguments['num'];
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Second Page'),
@@ -27,7 +24,7 @@ class _SecondPageState extends State<SecondPage> {
           Container(
             padding: EdgeInsets.all(20),
             child: Text(
-              "$str\n this number is has been passed from first page i.e$num",
+              widget.data['str'] + widget.data['num'].toString(),
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
             ),
           ),
